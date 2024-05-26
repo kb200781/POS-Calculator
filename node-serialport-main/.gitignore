@@ -1,0 +1,8 @@
+/.nyc_output
+/coverage
+lerna-debug.log
+node_modules
+npm-debug.log
+/packages/**/dist
+tsconfig-build.tsbuildinfo
+tsconfig.tsbuildinfo

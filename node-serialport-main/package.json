@@ -1,0 +1,67 @@
+{
+  "name": "serialport-monorepo",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Node.js packages to access serial ports, process data from them and speak many protocols",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "lerna run build",
+    "format": "npx prettier --write . && eslint packages test --fix",
+    "lint": "eslint packages test && npx prettier --check .",
+    "outdated": "lerna exec --no-bail npm outdated && npm outdated",
+    "publish": "lerna publish --exact",
+    "test:arduino": "TEST_PORT=$(./bin/find-arduino.ts) npm test",
+    "test:watch": "mocha -w",
+    "test": "nyc --reporter lcov --reporter text mocha",
+    "typecheck": "lerna exec tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/serialport/node-serialport.git"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@serialport/bindings-cpp": "12.0.1",
+    "@tsconfig/node18": "18.2.1",
+    "@types/chai": "4.3.14",
+    "@types/chai-subset": "1.3.5",
+    "@types/debug": "4.1.12",
+    "@types/mocha": "10.0.6",
+    "@types/node": "18.17.17",
+    "@types/sinon": "17.0.3",
+    "@typescript-eslint/eslint-plugin": "7.8.0",
+    "@typescript-eslint/parser": "7.8.0",
+    "chai": "5.1.0",
+    "chai-subset": "1.6.0",
+    "esbuild": "0.20.2",
+    "esbuild-register": "3.5.0",
+    "eslint": "9.1.1",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-mocha": "10.4.3",
+    "eslint-plugin-n": "17.4.0",
+    "eslint-plugin-promise": "6.1.1",
+    "lerna": "7.2.0",
+    "lerna-changelog": "2.2.0",
+    "mocha": "10.4.0",
+    "nyc": "15.1.0",
+    "prettier": "3.0.3",
+    "sinon": "17.0.1",
+    "typescript": "5.2.2"
+  },
+  "funding": "https://opencollective.com/serialport/donate",
+  "changelog": {
+    "labels": {
+      "breaking": ":boom: BREAKING CHANGES :boom:",
+      "feature-request": "Features",
+      "bug": "Bug Fixes",
+      "docs": "Documentation",
+      "internal": "Chores"
+    }
+  }
+}
