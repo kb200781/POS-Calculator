@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const tableSchema = new mongoose.Schema(
   {
+    tno:{
+      type:Number,
+      required:[true,"Transaction No. is Required"],
+    },
     cid: {
       type: Number,
       required: [true, "CID is required"],
@@ -26,6 +30,14 @@ const tableSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Cashinhand is required"],
     },
+    cash_status:{
+      type:String,
+      required:[true,"cashin/cashout is required"],
+    },
+    dp:{
+      type:String,
+      required:[true,"dp is required"],
+    }
   },
   { timestamps: true }
 );
